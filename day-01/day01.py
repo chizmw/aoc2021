@@ -1,14 +1,20 @@
 #!python
 
 import sys
+from typing import List
 
-with open("input.day1") as f:
-    # strip those pesky newlines and make a list of the data
-    # we read strings but want values, so convert to int
-    data = [int(line.strip()) for line in f.readlines()]
+
+def part1(data: List) -> int:
     count = 0
     for i, x in enumerate(data):
         if i > 0:
             if data[i] > data[i - 1]:
                 count += 1
-    print(count)
+    return count
+
+
+with open("input.day1") as f:
+    # strip those pesky newlines and make a list of the data
+    # we read strings but want values, so convert to int
+    data = [int(line.strip()) for line in f.readlines()]
+    print(f"Part 1: {part1(data)}")
